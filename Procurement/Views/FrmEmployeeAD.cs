@@ -627,7 +627,11 @@ namespace Procurement
 
         private void btnSync_Click(object sender, EventArgs e)
         {
-            using (var context = new PrincipalContext(ContextType.Domain, "http://biznishike.com/"))
+            string Name = new System.Security.Principal.WindowsPrincipal(System.Security.Principal.WindowsIdentity.GetCurrent()).Identity.Name;
+            string Name1 = System.Security.Principal.WindowsIdentity.GetCurrent().Name;
+            string Name2 = System.DirectoryServices.AccountManagement.UserPrincipal.Current.UserPrincipalName;
+
+            using (var context = new PrincipalContext(ContextType.Domain, "tenf.loc"))
             {
                 using (var searcher = new PrincipalSearcher(new UserPrincipal(context)))
                 {
@@ -639,6 +643,7 @@ namespace Procurement
                         Console.WriteLine("SAM account name   : " + de.Properties["samAccountName"].Value);
                         Console.WriteLine("User principal name: " + de.Properties["userPrincipalName"].Value);
                         Console.WriteLine();
+
                     }
                 }
             }
