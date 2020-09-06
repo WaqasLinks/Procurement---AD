@@ -246,21 +246,21 @@ namespace Procurement.Views
         }
         private void FrmEmployees_Show()
         {
-            FrmEmployee.Instance.MdiParent = FrmMDI.Instance; //this;
+            FrmEmployeeAD.Instance.MdiParent = FrmMDI.Instance; //this;
             
-            if (!FrmEmployee.Instance.Visible)
+            if (!FrmEmployeeAD.Instance.Visible)
             {
-                FrmEmployee.Instance.Show();
+                FrmEmployeeAD.Instance.Show();
             }
             else
             {
-                if (FrmEmployee.Instance.WindowState == FormWindowState.Minimized)
+                if (FrmEmployeeAD.Instance.WindowState == FormWindowState.Minimized)
                 {
-                    FrmEmployee.Instance.WindowState = FormWindowState.Normal;
+                    FrmEmployeeAD.Instance.WindowState = FormWindowState.Normal;
                 }
                 else
                 {
-                    FrmEmployee.Instance.BringToFront();
+                    FrmEmployeeAD.Instance.BringToFront();
                 }
 
             }
@@ -280,7 +280,7 @@ namespace Procurement.Views
 
         private void userToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmEmployee.Instance._EmployeeCode = LoginInfo.LoginEmployee.EmployeeCode;
+            FrmEmployeeAD.Instance._EmployeeCode = LoginInfo.LoginEmployee.EmployeeCode;
             FrmEmployees_Show();
             
         }
